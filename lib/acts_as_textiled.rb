@@ -56,7 +56,7 @@ module Err
             end
 
             define_method("#{attribute}_plain",  proc { strip_redcloth_html(__send__(attribute)) if __send__(attribute) } )
-            define_method("#{attribute}_source", proc { __send__("#{attribute}_before_type_cast") } )
+            define_method("#{attribute}_source", proc { read_attribute attribute } )
 
             @textiled_attributes << attribute
           end
